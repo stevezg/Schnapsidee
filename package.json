@@ -19,18 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-<<<<<<< HEAD
     "eject": "react-scripts eject",
     "now-build": "react-scripts build && mv build dist"
   }
-=======
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
->>>>>>> fdab6229504e4135b1db16d87f4ccdc4d7575aac
 }
