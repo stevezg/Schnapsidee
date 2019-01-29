@@ -7,14 +7,14 @@ import { fetchWord } from '../actions/words'
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { guess: '', score: 0 }
+    this.state = { guess: '' }
   }
   componentDidMount() {
     this.props.dispatch(fetchWord())
   }
   handleSubmit = e => {
     e.preventDefault()
-    e.currentTarget.reset()
+    e.currentTarget.reset() //not working
     console.log(e.currentTarget)
     if (this.state.guess === this.props.currentTranslation) {
       console.log('guess was correct')
