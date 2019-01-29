@@ -19,10 +19,15 @@ export class Dashboard extends React.Component {
     this.setState({ guess: e.target.value })
   }
   render() {
+    let WORD = 'word'
     return (
       <div className="dashboard">
-        <div className="dashboard-username">: {this.props.username}</div>
-
+        <div className="dashboard-username">
+          Hello, welcome {this.props.username}!
+        </div>
+        <div>
+          <p>{WORD}</p>
+        </div>
         <div>
           <form onSubmit={this.handleSubmit}>
             <input
