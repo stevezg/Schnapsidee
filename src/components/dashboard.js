@@ -20,6 +20,7 @@ export class Dashboard extends React.Component {
   }
   render() {
     let WORD = 'word'
+    let score = 0
     return (
       <div className="dashboard">
         <div className="dashboard-username">
