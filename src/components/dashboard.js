@@ -1,19 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Field, reduxForm, focus } from 'redux-form'
+
 import requiresLogin from './requires-login'
-import {fetchWord} from '../actions/words';
+import { fetchWord } from '../actions/words'
 
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { guess: null }
+    this.state = { guess: '' }
   }
   componentDidMount() {
-    this.props.dispatch(fetchWord());
+    this.props.dispatch(fetchWord())
   }
   handleSubmit = e => {
     e.preventDefault()
+    e.currentTarget.reset() //not working
+    console.log(e.currentTarget)
+    if (this.state.guess === this.props.currentTranslation) {
+      console.log('guess was correct')
+      this.props.dispatch(fetchWord())
+    } else {
+      console.log(
+        `guess was not correct, the correct answer is ${
+          this.props.currentTranslation
+        }`
+      )
+    }
   }
   handleChange = e => {
     this.setState({ guess: e.target.value })
@@ -25,6 +37,7 @@ export class Dashboard extends React.Component {
           Hello, welcome {this.props.username}!
         </div>
         <div>
+          <p>Guess the English translation of this German Word: </p>
           <p>{this.props.currentWord}</p>
         </div>
         <div>
@@ -49,6 +62,6 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   currentWord: state.word.currentWord,
   currentTranslation: state.word.currentTranslation
-});
+})
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))
