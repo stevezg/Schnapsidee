@@ -1,33 +1,44 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Field, reduxForm, focus } from 'redux-form'
+
 import requiresLogin from './requires-login'
-import { fetchProtectedData } from '../actions/protected-data'
+import { fetchWord } from '../actions/words'
 
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { guess: null }
+    this.state = { guess: '', score: 0 }
   }
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData())
+    this.props.dispatch(fetchWord())
   }
   handleSubmit = e => {
     e.preventDefault()
+    e.currentTarget.reset()
+    console.log(e.currentTarget)
+    if (this.state.guess === this.props.currentTranslation) {
+      console.log('guess was correct')
+      this.props.dispatch(fetchWord())
+    } else {
+      console.log(
+        `guess was not correct, the correct answer is ${
+          this.props.currentTranslation
+        }`
+      )
+    }
   }
   handleChange = e => {
     this.setState({ guess: e.target.value })
   }
   render() {
-    let WORD = 'word'
-    let score = 0
     return (
       <div className="dashboard">
         <div className="dashboard-username">
           Hello, welcome {this.props.username}!
         </div>
         <div>
-          <p>{WORD}</p>
+          <p>Guess the English translation of this German Word: </p>
+          <p>{this.props.currentWord}</p>
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
@@ -48,13 +59,9 @@ export class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { currentUser } = state.auth
-  return {
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
-  }
-}
+const mapStateToProps = state => ({
+  currentWord: state.word.currentWord,
+  currentTranslation: state.word.currentTranslation
+})
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))
