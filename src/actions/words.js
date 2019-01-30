@@ -14,9 +14,13 @@ const fetchWordError = err => ({
   err
 });
 
-export const fetchWord = () => dispatch => {
+export const fetchWord = () => (dispatch, getState) => {
   dispatch(fetchWordRequest());
-  return fetch(`${API_BASE_URL}/word`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/word`, {
+    method: 'GET',
+    headers: {Authorization: `Bearer ${authToken}`}
+  })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(word => dispatch(fetchWordSuccess(word.word, word.translation)))
