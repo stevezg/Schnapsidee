@@ -7,7 +7,7 @@ import { fetchWord } from '../actions/words'
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { guess: '' }
+    this.state = { guess: '', sumbittedGuess: false }
   }
   componentDidMount() {
     this.props.dispatch(fetchWord())
@@ -16,9 +16,9 @@ export class Dashboard extends React.Component {
     e.preventDefault()
     e.currentTarget.reset() //not working
     console.log(e.currentTarget)
+    this.setState({ sumbittedGuess: true })
     if (this.state.guess === this.props.currentTranslation) {
       console.log('guess was correct')
-      this.props.dispatch(fetchWord())
     } else {
       console.log(
         `guess was not correct, the correct answer is ${
@@ -29,6 +29,9 @@ export class Dashboard extends React.Component {
   }
   handleChange = e => {
     this.setState({ guess: e.target.value })
+  }
+  handleClick = () => {
+    this.props.dispatch(fetchWord())
   }
   render() {
     return (
@@ -54,6 +57,11 @@ export class Dashboard extends React.Component {
             </button>
           </form>
         </div>
+        {this.state.sumbittedGuess && (
+          <div>
+            <button onClick={this.handleClick}>NEXT</button>
+          </div>
+        )}
       </div>
     )
   }
