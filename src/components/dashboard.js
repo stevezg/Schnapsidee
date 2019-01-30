@@ -69,7 +69,8 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => ({
   currentWord: state.word.currentWord,
-  currentTranslation: state.word.currentTranslation
+  currentTranslation: state.word.currentTranslation,
+  currentM: state.word.currentM
 })
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))

@@ -4,10 +4,11 @@ import {normalizeResponseErrors} from './utils';
 const fetchWordRequest = () => ({
   type: 'FETCH_WORD_REQUEST'
 });
-const fetchWordSuccess = (word, translation) => ({
+const fetchWordSuccess = (word, translation, m) => ({
   type: 'FETCH_WORD_SUCCESS',
   word,
-  translation
+  translation,
+  m
 });
 const fetchWordError = err => ({
   type: 'FETCH_WORD_ERROR',
@@ -23,6 +24,6 @@ export const fetchWord = () => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(word => dispatch(fetchWordSuccess(word.word, word.translation)))
+    .then(word => dispatch(fetchWordSuccess(word.word, word.translation, word.m)))
     .catch(err => dispatch(fetchWordError(err)));
 };
