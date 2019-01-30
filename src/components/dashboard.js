@@ -18,8 +18,8 @@ export class Dashboard extends React.Component {
     console.log(e.currentTarget)
     this.setState({ sumbittedGuess: true })
     if (this.state.guess === this.props.currentTranslation) {
-      this.setState = { correct: true }
       console.log('guess was correct')
+      this.setState({ correct: true })
     } else {
       this.setState({ correct: false })
       console.log()
@@ -29,6 +29,7 @@ export class Dashboard extends React.Component {
     this.setState({ guess: e.target.value })
   }
   handleClick = () => {
+    this.setState({ sumbittedGuess: false })
     this.props.dispatch(fetchWord())
   }
   render() {
@@ -41,7 +42,7 @@ export class Dashboard extends React.Component {
         {this.state.correct && this.state.sumbittedGuess && (
           <div>guess was correct</div>
         )}
-        {!this.state.correct && this.state.sumbittedGuess && (
+        {this.state.correct === false && this.state.sumbittedGuess && (
           <div>{`guess was not correct, the correct answer is ${
             this.props.currentTranslation
           }`}</div>
