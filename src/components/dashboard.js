@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import requiresLogin from './requires-login'
-import { fetchWord } from '../actions/words'
+import { fetchWord, submitAnswer } from '../actions/words'
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -18,8 +18,10 @@ export class Dashboard extends React.Component {
     console.log(e.currentTarget)
     this.setState({ sumbittedGuess: true })
     if (this.state.guess === this.props.currentTranslation) {
+      this.props.dispatch(submitAnswer(this.props.currentM * 2));
       console.log('guess was correct')
     } else {
+      this.props.dispatch(submitAnswer(1));
       console.log(
         `guess was not correct, the correct answer is ${
           this.props.currentTranslation
