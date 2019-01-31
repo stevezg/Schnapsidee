@@ -24,6 +24,18 @@ const submitAnswerError = err => ({
   type: 'SUBMIT_ANSWER_ERROR',
   err
 });
+const fetchProgressRequest = () => ({
+  type: 'FETCH_PROGRESS_REQUEST'
+});
+const fetchProgressSuccess = (countCompleted, countTotal) => ({
+  type: 'FETCH_PROGRESS_SUCCESS',
+  countCompleted,
+  countTotal
+});
+const fetchProgressError = err => ({
+  type: 'FETCH_PROGRESS_ERROR',
+  err
+});
 
 export const fetchWord = () => (dispatch, getState) => {
   dispatch(fetchWordRequest());
@@ -46,4 +58,15 @@ export const submitAnswer = m => (dispatch, getState) => {
   }).then(res => normalizeResponseErrors(res))
     .then(() => dispatch(submitAnswerSuccess()))
     .catch(err => dispatch(submitAnswerError(err)));
+};
+export const fetchProgress = () => (dispatch, getState) => {
+  dispatch(fetchProgressRequest());
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/word/progress`, {
+    method: 'GET',
+    headers: {Authorization: `Bearer ${authToken}`}
+  }).then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(progress => dispatch(fetchProgressSuccess(progress.countCompleted, progress.countTotal)))
+    .catch(err => dispatch(fetchProgressError(err)));
 };
