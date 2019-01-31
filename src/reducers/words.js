@@ -1,4 +1,5 @@
-const initialState = {currentWord: null, currentTranslation: null, currentM: 1, loading:false, err: null};
+const initialState = {currentWord: null, currentTranslation: null, currentM: 1, countCompleted:0, countTotal: 0,
+  loading:false, err: null};
 
 export default (state=initialState, action) => {
   switch (action.type) {
@@ -13,6 +14,12 @@ export default (state=initialState, action) => {
     case 'SUBMIT_ANSWER_SUCCESS':
       return {...state, loading: false};
     case 'SUBMIT_ANSWER_ERROR':
+      return {...state, loading: false, err: action.err};
+    case 'FETCH_PROGRESS_REQUEST':
+      return {...state, loading: true};
+    case 'FETCH_PROGRESS_SUCCESS':
+      return {...state, countCompleted: action.countCompleted, countTotal: action.countTotal, loading: false};
+    case 'FETCH_PROGRESS_ERROR':
       return {...state, loading: false, err: action.err};
     default:
       return state;
