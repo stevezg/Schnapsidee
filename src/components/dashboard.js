@@ -85,7 +85,7 @@ export class Dashboard extends React.Component {
           </div>
         )}
         {this.state.progress && (
-          <div className="progress">{`You have mastered ${this.props.countCompleted} words out of ${this.props.total}.`}</div>
+          <div className="progress">{`You have mastered ${this.props.countCompleted} words out of ${this.props.countTotal}.`}</div>
         )}
         <button onClick={() => this.handleProgress()}>{progressButtonText}</button>
       </div>
