@@ -47,10 +47,10 @@ export class Dashboard extends React.Component {
         </div>
 
         {this.state.correct && this.state.sumbittedGuess && (
-          <div>guess was correct</div>
+          <div className="success">guess was correct</div>
         )}
         {this.state.correct === false && this.state.sumbittedGuess && (
-          <div>{`guess was not correct, the correct answer is ${
+          <div className="error">{`guess was not correct, the correct answer is ${
             this.props.currentTranslation
           }`}</div>
         )}
