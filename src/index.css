@@ -24,3 +24,7 @@
 .home {
   color: azure;
 }
+.register {
+  text-decoration-line: none;
+  color: #ff9800;
+}
