@@ -9,6 +9,7 @@
   flex-direction: column;
   background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg);
   background-size: cover;
+  height: -webkit-fill-available;
 }
 .header-bar {
   display: flex;
