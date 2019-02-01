@@ -1,3 +1,8 @@
+body {
+  background-image: url(http://www.wallpapers13.com/wp-content/uploads/2016/02/Berlin-Wallpaper-City-Europe-Germany-915x515.jpg);
+  background-size: cover;
+  font-family: sans-serif;
+}
 .success {
   color: green;
 }
@@ -7,8 +12,6 @@
 .app {
   display: flex;
   flex-direction: column;
-  background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg);
-  background-size: cover;
   height: -webkit-fill-available;
 }
 .header-bar {
