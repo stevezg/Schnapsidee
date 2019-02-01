@@ -87,14 +87,10 @@ export class Dashboard extends React.Component {
           </form>
 
           {this.state.sumbittedGuess && (
-            <div>
-              <button onClick={this.handleClick}>NEXT</button>
-            </div>
+            <button onClick={this.handleClick}>NEXT</button>
           )}
         </div>
-        {this.state.sumbittedGuess && (
-          <button onClick={this.handleClick}>NEXT</button>
-        )}
+
         {this.state.progress && (
           <div className="progress">{`You have mastered ${
             this.props.countCompleted
