@@ -93,9 +93,7 @@ export class Dashboard extends React.Component {
           )}
         </div>
         {this.state.sumbittedGuess && (
-          <div>
-            <button onClick={this.handleClick}>NEXT</button>
-          </div>
+          <button onClick={this.handleClick}>NEXT</button>
         )}
         {this.state.progress && (
           <div className="progress">{`You have mastered ${

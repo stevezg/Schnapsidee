@@ -18,3 +18,6 @@
 .buttonGroup {
   display: flex;
 }
+.dashboard {
+  color: azure;
+}
