@@ -7,26 +7,26 @@
 .app {
   display: flex;
   flex-direction: column;
-  background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg);
+  background-image: url(https://us.123rf.com/450wm/noiployngam/noiployngam1406/noiployngam140600021/29140297-background-germany-flag-color.jpg?ver=6);
   background-size: cover;
   height: -webkit-fill-available;
 }
 .header-bar {
   display: flex;
   justify-content: space-between;
-  color: ghostwhite;
+  /* color: ghostwhite; */
 }
 .buttonGroup {
   display: flex;
 }
 .dashboard {
-  color: azure;
+  /* color: azure; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .home {
-  color: azure;
+  /* color: azure; */
 }
 .register {
   text-decoration-line: none;
