@@ -21,6 +21,9 @@
 }
 .dashboard {
   color: azure;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .home {
   color: azure;
