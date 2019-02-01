@@ -2,14 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import requiresLogin from './requires-login'
-import { fetchWord, submitAnswer } from '../actions/words'
+import { fetchWord, submitAnswer, fetchProgress } from '../actions/words'
 
 // import './dashboard.css'
 
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { guess: '', sumbittedGuess: false, correct: false }
+    this.state = {
+      guess: '',
+      sumbittedGuess: false,
+      correct: false,
+      progress: false
+    }
   }
   componentDidMount() {
     this.props.dispatch(fetchWord())
@@ -18,7 +23,7 @@ export class Dashboard extends React.Component {
     e.preventDefault()
     e.currentTarget.reset() //not working
     console.log(e.currentTarget)
-    this.setState({ sumbittedGuess: true })
+    this.setState({ sumbittedGuess: true, progress: false })
     if (this.state.guess === this.props.currentTranslation) {
       this.props.dispatch(submitAnswer(this.props.currentM * 2))
       console.log('guess was correct')
@@ -41,7 +46,13 @@ export class Dashboard extends React.Component {
     this.setState({ sumbittedGuess: false })
     this.props.dispatch(fetchWord())
   }
+  handleProgress() {
+    this.setState({ progress: !this.state.progress })
+    this.props.dispatch(fetchProgress())
+  }
   render() {
+    let progressButtonText = 'View your progress'
+    if (this.state.progress) progressButtonText = 'Hide your progress'
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -81,6 +92,19 @@ export class Dashboard extends React.Component {
             </div>
           )}
         </div>
+        {this.state.sumbittedGuess && (
+          <div>
+            <button onClick={this.handleClick}>NEXT</button>
+          </div>
+        )}
+        {this.state.progress && (
+          <div className="progress">{`You have mastered ${
+            this.props.countCompleted
+          } words out of ${this.props.countTotal}.`}</div>
+        )}
+        <button onClick={() => this.handleProgress()}>
+          {progressButtonText}
+        </button>
       </div>
     )
   }
@@ -89,7 +113,9 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   currentWord: state.word.currentWord,
   currentTranslation: state.word.currentTranslation,
-  currentM: state.word.currentM
+  currentM: state.word.currentM,
+  countCompleted: state.word.countCompleted,
+  countTotal: state.word.countTotal
 })
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))
