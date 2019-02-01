@@ -14,6 +14,7 @@
 .header-bar {
   display: flex;
   justify-content: space-between;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: ghostwhite;
 }
 .buttonGroup {
@@ -21,14 +22,18 @@
 }
 .dashboard {
   color: azure;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .home {
   color: azure;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.register {
-  text-decoration-line: none;
-  color: #ff9800;
+button {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: lightgray;
+  color: black;
 }
