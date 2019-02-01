@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import requiresLogin from './requires-login'
 import { fetchWord, submitAnswer } from '../actions/words'
 
+// import './dashboard.css'
+
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props)
@@ -59,7 +61,7 @@ export class Dashboard extends React.Component {
           <p>Guess the English translation of this German Word: </p>
           <p>{this.props.currentWord}</p>
         </div>
-        <div>
+        <div className="buttonGroup">
           <form onSubmit={this.handleSubmit}>
             <input
               value={this.state.guess}
@@ -72,12 +74,13 @@ export class Dashboard extends React.Component {
               ENTER
             </button>
           </form>
+
+          {this.state.sumbittedGuess && (
+            <div>
+              <button onClick={this.handleClick}>NEXT</button>
+            </div>
+          )}
         </div>
-        {this.state.sumbittedGuess && (
-          <div>
-            <button onClick={this.handleClick}>NEXT</button>
-          </div>
-        )}
       </div>
     )
   }

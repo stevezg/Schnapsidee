@@ -1,11 +1,20 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
 .success {
   color: green;
 }
 .error {
   color: red;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg);
+  background-size: cover;
+}
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  color: ghostwhite;
+}
+.buttonGroup {
+  display: flex;
 }
