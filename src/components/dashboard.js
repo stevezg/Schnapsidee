@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
   }
   handleSubmit = e => {
     e.preventDefault()
-    e.currentTarget.reset() //not working
+    // e.currentTarget.reset() //not working
     console.log(e.currentTarget)
     this.setState({ sumbittedGuess: true, progress: false })
     if (this.state.guess === this.props.currentTranslation) {
@@ -36,14 +36,13 @@ export class Dashboard extends React.Component {
         }`
       )
       this.setState({ correct: false })
-      console.log()
     }
   }
   handleChange = e => {
     this.setState({ guess: e.target.value })
   }
   handleClick = () => {
-    this.setState({ sumbittedGuess: false })
+    this.setState({ sumbittedGuess: false, guess: '' })
     this.props.dispatch(fetchWord())
   }
   handleProgress() {
@@ -75,13 +74,14 @@ export class Dashboard extends React.Component {
         <div className="buttonGroup">
           <form onSubmit={this.handleSubmit}>
             <input
+              readOnly={this.state.sumbittedGuess}
               value={this.state.guess}
               onChange={this.handleChange}
               type="text"
               name="guess"
               placeholder="enter the translation"
             />
-            <button value="Submit" type="submit">
+            <button value="Submit" type="submit" disabled={this.state.sumbittedGuess}>
               ENTER
             </button>
           </form>

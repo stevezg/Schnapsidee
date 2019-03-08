@@ -15,8 +15,8 @@ export class HeaderBar extends React.Component {
     if (this.props.loggedIn) {
       logOutButton = (
         <button style={{     height: "100%",
-          "margin-top": "10px",
-          "margin-right": "10px" }} onClick={() => this.logOut()}>
+          "marginTop": "10px",
+          "marginRight": "10px" }} onClick={() => this.logOut()}>
           Log out
         </button>
       )

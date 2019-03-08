@@ -15,7 +15,7 @@ export function LandingPage(props) {
       <h2>Welcome to Schnapsidee</h2>
       <p>Learn German fast with this state of the art app! We use a spaced repetition algorithm to provide efficient learning to overcome the 'forgetting curve.' Come learn with us, it'll be fantastisch!</p>
       <LoginForm />
-      <Link to="/register">Register</Link>
+      <Link to="/register"><button>Register</button></Link>
     </div>
   );
 }
