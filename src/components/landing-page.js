@@ -14,7 +14,7 @@ export function LandingPage(props) {
     <div className="home">
       <div className="inner">
         <h2 className="header">Welcome to Schnapsidee</h2>
-        <p>
+        <p className="paragraph">
           Learn German fast! We use a spaced repetition algorithm to provide
           efficient learning to overcome the 'forgetting curve.' Come learn with
           us, it'll be fantastisch!

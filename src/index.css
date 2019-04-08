@@ -1,5 +1,5 @@
 body {
-  background-image: url(http://www.wallpapers13.com/wp-content/uploads/2016/02/Berlin-Wallpaper-City-Europe-Germany-915x515.jpg);
+  background-image: url(https://backgroundcheckall.com/wp-content/uploads/2017/12/ombre-background-tumblr.png);
   background-size: cover;
   font-family: sans-serif;
 }
@@ -12,8 +12,54 @@ body {
 .error {
   color: red;
 }
+
 .button {
+  margin-top: 10px;
   width: 131px;
+  border: 1px solid #ffad41;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: arial, helvetica, sans-serif;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ffc579;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffc579),
+    to(#fb9d23)
+  );
+  background-image: -webkit-linear-gradient(top, #ffc579, #fb9d23);
+  background-image: -moz-linear-gradient(top, #ffc579, #fb9d23);
+  background-image: -ms-linear-gradient(top, #ffc579, #fb9d23);
+  background-image: -o-linear-gradient(top, #ffc579, #fb9d23);
+  background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffc579, endColorstr=#fb9d23);
+}
+
+.button:hover {
+  border: 1px solid #ff9913;
+  background-color: #ffaf46;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffaf46),
+    to(#e78404)
+  );
+  background-image: -webkit-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -moz-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -ms-linear-gradient(top, #ffaf46, #e78404);
+  background-image: -o-linear-gradient(top, #ffaf46, #e78404);
+  background-image: linear-gradient(to bottom, #ffaf46, #e78404);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#ffaf46, endColorstr=#e78404);
 }
 .app {
   display: flex;
@@ -38,6 +84,9 @@ body {
 }
 .inner {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .home {
   /* color: azure;
