@@ -1,27 +1,35 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import React from 'react'
+import { connect } from 'react-redux'
+import { Link, Redirect } from 'react-router-dom'
 
-import LoginForm from './login-form';
+import LoginForm from './login-form'
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/dashboard" />
   }
 
   return (
     <div className="home">
-      <h2>Welcome to Schnapsidee</h2>
-      <p>Learn German fast with this state of the art app! We use a spaced repetition algorithm to provide efficient learning to overcome the 'forgetting curve.' Come learn with us, it'll be fantastisch!</p>
-      <LoginForm />
-      <Link to="/register"><button>Register</button></Link>
+      <div className="inner">
+        <h2 className="header">Welcome to Schnapsidee</h2>
+        <p>
+          Learn German fast! We use a spaced repetition algorithm to provide
+          efficient learning to overcome the 'forgetting curve.' Come learn with
+          us, it'll be fantastisch!
+        </p>
+        <LoginForm />
+        <Link to="/register">
+          <button className="button">Register</button>
+        </Link>
+      </div>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
-});
+})
 
-export default connect(mapStateToProps)(LandingPage);
+export default connect(mapStateToProps)(LandingPage)

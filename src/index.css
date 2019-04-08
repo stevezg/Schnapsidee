@@ -6,8 +6,14 @@ body {
 .success {
   color: green;
 }
+.header {
+  text-align: center;
+}
 .error {
   color: red;
+}
+.button {
+  width: 131px;
 }
 .app {
   display: flex;
@@ -30,9 +36,19 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.inner {
+  width: 80%;
+}
 .home {
   /* color: azure;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 button {
   border: 1px solid black;
