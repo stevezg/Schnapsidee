@@ -65,6 +65,7 @@ body {
   display: flex;
   flex-direction: column;
   height: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 .header-bar {
   display: flex;
@@ -103,5 +104,6 @@ button {
   border: 1px solid black;
   border-radius: 3px;
   background-color: lightgray;
+
   color: black;
 }
