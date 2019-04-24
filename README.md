@@ -1,5 +1,7 @@
 # [Schnapsidee](https://german-steve-sean.herokuapp.com/)
 
+![Schnapsidee](/public/screenshot.png)
+
 The server is in a seperate repo that can be found [Here](https://github.com/thinkful-ei26/spaced-repitition-steve-sean-SERVER)
 
 ### Description
